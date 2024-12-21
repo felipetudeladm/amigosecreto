@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Amigo Secreto</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./styles.css" rel="stylesheet">
+  <script src="index.js"></script>
+</head>
+
+<style>
+  .container {
+    color: #000;
+    padding-left: 35px;
+  }
+</style>
+
+<body>
+  <div class="container mt-5" id="telainicial", style="display: none;">
+    <h1>Seja bem-vindo ao Amigo Secreto 2024!</h1>
+
+    <br>
+
+    <h5>Qual é o seu nome?</h5>
+    <p>Digite seu nome no campo abaixo</p>
+
+    <div class="form">
+      <form class="row g-3">
+        <div class="col-md-6">
+          <input type="text" class="form-control" id="idnome">
+        </div>
+
+        <div class="col-12">
+          <button type="button" class="btn btn-primary" onclick="onClickEnviar()">Enviar</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="teste"></div>
+
+  </div>
+
+  <div class="container mt-5" id="telaroleta" style="display: block">
+    <div class="folha">
+      <div class="seta"></div>
+      <div class="roleta" id="roleta" onclick="playOnClick()">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+        <div class="box4"></div>
+        <div class="box5"></div>
+        <div class="box6"></div>
+
+        <div class="premio premio1" id="opt1">100 reais</div>
+        <div class="premio premio2" id="opt0">110 reais</div>
+        <div class="premio premio3" id="opt7">115 reais</div>
+        <div class="premio premio4" id="opt6">Duda</div>
+        <div class="premio premio5" id="opt5">125 reais</div>
+        <div class="premio premio6" id="opt4">130 reais</div>
+      </div>
+    </div>
+    <!-- O seu amigo secreto é
+    <div id="pessoasorteada"></div> -->
+  </div>
+
+
+</body>
+
+</html>
