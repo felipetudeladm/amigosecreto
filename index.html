@@ -18,7 +18,7 @@
 </style>
 
 <body>
-  <div class="container mt-5" id="telainicial", style="display: none;">
+  <div class="container mt-5" id="telainicial", style="display: block;">
     <h1>Seja bem-vindo ao Amigo Secreto 2024!</h1>
 
     <br>
@@ -42,7 +42,8 @@
 
   </div>
 
-  <div class="container mt-5" id="telaroleta" style="display: block">
+  <div class="container mt-5" id="telaroleta" style="display: none">
+    <h1>Clique na roleta</h1>
     <div class="folha">
       <div class="seta"></div>
       <div class="roleta" id="roleta" onclick="playOnClick()">
@@ -53,16 +54,19 @@
         <div class="box5"></div>
         <div class="box6"></div>
 
-        <div class="premio premio1" id="opt1">100 reais</div>
-        <div class="premio premio2" id="opt0">110 reais</div>
-        <div class="premio premio3" id="opt7">115 reais</div>
-        <div class="premio premio4" id="opt6">Duda</div>
-        <div class="premio premio5" id="opt5">125 reais</div>
-        <div class="premio premio6" id="opt4">130 reais</div>
+        <div class="premio premio1">100 reais</div>
+        <div class="premio premio2">110 reais</div>
+        <div class="premio premio3">115 reais</div>
+        <div class="premio premio4">Duda</div>
+        <div class="premio premio5">125 reais</div>
+        <div class="premio premio6">130 reais</div>
       </div>
     </div>
-    <!-- O seu amigo secreto é
-    <div id="pessoasorteada"></div> -->
+
+    <div id="resultadosorteio" style="display:none">
+      <h5>O seu amigo secreto é <span id="pessoasorteada"></span></h5>
+    </div>
+    
   </div>
 
 
