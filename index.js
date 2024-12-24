@@ -1,5 +1,5 @@
 // CONFIGURAÇÕES começo
-const seed = 0.5
+const seed = 985412636
 const pessoas = [
     "alexandre",
     "leo",
@@ -21,9 +21,6 @@ const pessoasAtributos = {
 }
 
 // CONFIGURAÇÕES fim
-
-const select = document.querySelector("#idnome")
-console.log("select", select)
 
 function createRandom() {
     [a, b, c, d] = [(0.25 * seed * 2 ** 32) >>> 0, (0.5 * seed * 2 ** 32) >>> 0, (0.75 * seed * 2 ** 32) >>> 0, (1 * seed * 2 ** 32) >>> 0]
@@ -111,7 +108,7 @@ function playOnClick() {
     const nomeLogin = formInput.value // todo: como garantir que a pessoa digitará o nome corretamente?
     const sorteado = obterAmigoSecreto(nomeLogin)
 
-    divRoleta.style.animation = "roleta 2s cubic-bezier(0.25, 1, 0.5, 1) forwards";
+    divRoleta.style.animation = "roleta 12s cubic-bezier(0.25, 1, 0.5, 1) forwards";
 
     divPessoaSorteada.innerText = pessoasAtributos[sorteado].nome
     function exibirResultado() {
@@ -119,7 +116,7 @@ function playOnClick() {
         divResultadoSorteio.style.display = "block"
     }
 
-    setTimeout(exibirResultado, 3000)
+    setTimeout(exibirResultado, 13000)
 
 }
 
