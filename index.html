@@ -11,9 +11,13 @@
 </head>
 
 <style>
+  body {
+    background-image: radial-gradient( circle farthest-corner at 3.7% 49.8%,  rgba(143,232,255,1) 21.9%, rgba(209,243,251,1) 52.9% );
+
+  }
   .container {
-    color: #000;
-    padding-left: 35px;
+    /* color: #000; */
+    /* padding-left: 35px; */
   }
 </style>
 
@@ -24,16 +28,22 @@
     <br>
 
     <h5>Qual é o seu nome?</h5>
-    <p>Digite seu nome no campo abaixo</p>
+    <p>Selecione seu nome no campo abaixo</p>
 
-    <div class="form">
-      <form class="row g-3">
-        <div class="col-md-6">
-          <input type="text" class="form-control" id="idnome">
-        </div>
+    <div class="col-md-4" style="padding-bottom:10px;">
+          <select type="text" class="form-select" id="idnome" onchange="habilitarBotao()">
+            <option selected>Selecione</option>
+            <option value="alexandre">Alexandre</option>
+            <option value="andrea">Andréa</option>
+            <option value="felipe">Felipe</option>
+            <option value="leonardo">Leonardo</option>
+            <option value="leo">Léo Amaro</option>
+            <option value="livia">Lívia</option>
+            <option value="duda">Maria Eduarda</option>
+          </select>
 
-        <div class="col-12">
-          <button type="button" class="btn btn-primary" onclick="onClickEnviar()">Enviar</button>
+        <div class="col-12" id="divbotaoenviar">
+          <button disabled type="button" class="btn btn-warning" id="botaoenviar" onclick="onClickEnviar()">Enviar</button>
         </div>
       </form>
     </div>
@@ -42,8 +52,9 @@
 
   </div>
 
-  <div class="container mt-5" id="telaroleta" style="display: none">
-    <h1>Clique na roleta</h1>
+  <div class="container mt-5" id="telaroleta" style="display: none;">
+    <h1 class="tituloroleta">Clique na roleta</h1>
+    <p>E sorteie o seu amigo secreto!</p>
     <div class="folha">
       <div class="seta"></div>
       <div class="roleta" id="roleta" onclick="playOnClick()">
@@ -63,7 +74,7 @@
       </div>
     </div>
 
-    <div id="resultadosorteio" style="display:none">
+    <div id="resultadosorteio" style="display:none;">
       <h5>O seu amigo secreto é <span id="pessoasorteada"></span></h5>
     </div>
     

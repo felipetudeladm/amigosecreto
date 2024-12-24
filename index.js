@@ -11,16 +11,19 @@ const pessoas = [
 ]
 
 const pessoasAtributos = {
-    "alexandre": {nome: "Alexandre", presentes: null},
-    "leo": {nome: "Léo Amaro", presentes: null},
-    "felipe": {nome: "Felipe", presentes: null},
-    "leonardo": {nome: "Leonardo", presentes: null},
-    "livia": {nome: "Lívia", presentes: null},
-    "andrea": {nome: "Andréa", presentes: ["Camisa"]},
-    "duda": {nome: "Duda", presentes: null},
+    "alexandre": { nome: "Alexandre", presentes: null },
+    "leo": { nome: "Léo Amaro", presentes: null },
+    "felipe": { nome: "Felipe", presentes: null },
+    "leonardo": { nome: "Leonardo", presentes: null },
+    "livia": { nome: "Lívia", presentes: null },
+    "andrea": { nome: "Andréa", presentes: ["Camisa"] },
+    "duda": { nome: "Duda", presentes: null },
 }
 
 // CONFIGURAÇÕES fim
+
+const select = document.querySelector("#idnome")
+console.log("select", select)
 
 function createRandom() {
     [a, b, c, d] = [(0.25 * seed * 2 ** 32) >>> 0, (0.5 * seed * 2 ** 32) >>> 0, (0.75 * seed * 2 ** 32) >>> 0, (1 * seed * 2 ** 32) >>> 0]
@@ -61,12 +64,10 @@ function obterAmigoSecreto(nome) {
 
 function onClickEnviar() {
 
-    console.log({pessoasEmbaralhadas})
-
     const divTelaInicial = document.getElementById("telainicial")
     const divTelaRoleta = document.getElementById("telaroleta")
     const divPessoaSorteada = document.getElementById("pessoasorteada")
-    
+
     // troca de tela começo 
     divTelaInicial.style.display = 'none'
     divTelaRoleta.style.display = 'block'
@@ -90,7 +91,7 @@ function onClickEnviar() {
 
     // COLOCAR OS NOMES NA DIVS
     for (let i = 0; i < 6; i++) {
-        const divPremio = document.querySelector('.premio' + (i+1))
+        const divPremio = document.querySelector('.premio' + (i + 1))
         const pessoa = pessoasQueParticiparaoDoSorteio[i]
         console.log(pessoa)
         divPremio.innerText = pessoasAtributos[pessoa].nome
@@ -98,21 +99,40 @@ function onClickEnviar() {
 
     // COLOCAR O SORTEADO NA FATIA QUE É SORTEADA
 
-    divPessoaSorteada.innerText = pessoasAtributos[sorteado].nome
-    function exibirResultado(){
-        const divResultadoSorteio = document.getElementById("resultadosorteio")
-        divResultadoSorteio.style.display = "block"
-    }
 
-    setTimeout(exibirResultado, 3000)
 }
 
 function playOnClick() {
 
     const divRoleta = document.getElementById("roleta")
+    const divPessoaSorteada = document.getElementById("pessoasorteada")
+
+    const formInput = document.getElementById("idnome")
+    const nomeLogin = formInput.value // todo: como garantir que a pessoa digitará o nome corretamente?
+    const sorteado = obterAmigoSecreto(nomeLogin)
 
     divRoleta.style.animation = "roleta 2s cubic-bezier(0.25, 1, 0.5, 1) forwards";
 
+    divPessoaSorteada.innerText = pessoasAtributos[sorteado].nome
+    function exibirResultado() {
+        const divResultadoSorteio = document.getElementById("resultadosorteio")
+        divResultadoSorteio.style.display = "block"
+    }
+
+    setTimeout(exibirResultado, 3000)
+
 }
 
+function habilitarBotao(event) {
+    //busca conteúdo do input
+    var conteudo = document.getElementById("idnome").value;
 
+    //valida conteudo do input 
+    if (conteudo !== null && conteudo !== 'Selecione' && conteudo !== '') {
+        //habilita o botão
+        document.getElementById("botaoenviar").disabled = false;
+    } else {
+        //desabilita o botão se o conteúdo do input ficar em branco
+        document.getElementById("botaoenviar").disabled = true;
+    }
+}
